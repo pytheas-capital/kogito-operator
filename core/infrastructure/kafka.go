@@ -144,7 +144,7 @@ func (k *kafkaHandler) ResolveKafkaServerURI(kafka *v1beta2.Kafka) (string, erro
 func ResolveKafkaServerURI(kafka *v1beta2.Kafka) string {
 	if len(kafka.Status.Listeners) > 0 {
 		for _, listenerStatus := range kafka.Status.Listeners {
-			if listenerStatus.Type == "plain" && len(listenerStatus.Addresses) > 0 {
+			if listenerStatus.Name == "plain" && len(listenerStatus.Addresses) > 0 {
 				for _, listenerAddress := range listenerStatus.Addresses {
 					if len(listenerAddress.Host) > 0 && listenerAddress.Port > 0 {
 						kafkaURI := fmt.Sprintf("%s:%d", listenerAddress.Host, listenerAddress.Port)
