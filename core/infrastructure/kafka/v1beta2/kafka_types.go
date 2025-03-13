@@ -113,7 +113,7 @@ const (
 
 // ListenerStatus defines a single listener
 type ListenerStatus struct {
-	Type      string            `json:"type,omitempty"`
+	Name      string            `json:"name,omitempty"`
 	Addresses []ListenerAddress `json:"addresses,omitempty"`
 }
 
